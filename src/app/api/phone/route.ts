@@ -11,7 +11,7 @@ export const GET = firmRoute(async (ctx, _s, req) => {
     const ownerId = url.searchParams.get("owner") ?? owners[0]?.id;
     const owner = owners.find((o) => o.id === ownerId) ?? owners[0] ?? null;
     return {
-      owners, owner, now: firm.demo_now, firmName: firm.name,
+      owners, owner, now: firm.demo_now, firmName: firm.name, firmTimezone: firm.timezone,
       messages: owner ? await phoneThread(tx, owner.id) : [],
       consent: owner ? await consentRecords(tx, owner.id) : [],
     };

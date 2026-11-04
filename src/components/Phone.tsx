@@ -6,7 +6,7 @@ import type { ConsentRecord, PhoneMessage, PhoneOwner } from "@/lib/phone";
 import { notifyChanged, post } from "./client-api";
 
 export type PhoneData = {
-  owners: PhoneOwner[]; owner: PhoneOwner | null; messages: PhoneMessage[]; consent: ConsentRecord[]; now: string; firmName: string;
+  owners: PhoneOwner[]; owner: PhoneOwner | null; messages: PhoneMessage[]; consent: ConsentRecord[]; now: string; firmName: string; firmTimezone: string;
 };
 
 /** Loads one owner's thread and follows changes made anywhere on the page. */
@@ -170,7 +170,7 @@ export function PhoneFrame({ phone, compact }: { phone: ReturnType<typeof usePho
 export function FirmLog({ data }: { data: PhoneData | null }) {
   if (!data?.owner) return <div className="card p-6 text-center text-muted">Pick an owner to see the firm's log.</div>;
   const { owner } = data;
-  const tz = "America/New_York";
+  const tz = data.firmTimezone;
   const status = (m: PhoneMessage) => {
     if (m.status === "sent") return { label: "Sent", cls: "text-good" };
     if (m.status === "received") return { label: "Received", cls: "text-plum-800" };
