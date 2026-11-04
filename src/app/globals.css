@@ -1,0 +1,45 @@
+@import "tailwindcss";
+
+@theme {
+  --color-plum-950: #2e0f28;
+  --color-plum-900: #451436;
+  --color-plum-800: #5a1c47;
+  --color-plum-700: #74305f;
+  --color-plum-100: #f3e8ef;
+  --color-plum-50: #faf5f8;
+  --color-action: #c2520a;
+  --color-action-dark: #a24307;
+  --color-ink: #2b2230;
+  --color-muted: #6c6170;
+  --color-line: #e6dfe4;
+  --color-paper: #fbf9f7;
+  --color-good: #1f6e43;
+  --color-good-tint: #e6f3ea;
+  --color-good-line: #bfdfca;
+  --color-bad: #a32a2a;
+  --color-bad-tint: #fbeaea;
+  --color-bad-line: #f0c9c9;
+  --color-warn: #a65406;
+  --color-warn-tint: #fdf0e1;
+  --color-warn-line: #f5d6b0;
+  --font-sans: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-head), ui-serif, Georgia, serif;
+}
+
+html { -webkit-text-size-adjust: 100%; }
+body { background: var(--color-paper); color: var(--color-ink); }
+:focus-visible { outline: 2px solid var(--color-action); outline-offset: 2px; }
+
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: .4rem; border-radius: .5rem; padding: .55rem .9rem; font-weight: 600; font-size: .9rem; line-height: 1.2; transition: background-color .15s, border-color .15s; cursor: pointer; }
+.btn:disabled { opacity: .55; cursor: not-allowed; }
+.btn-action { background: var(--color-action); color: #fff; }
+.btn-action:hover:not(:disabled) { background: var(--color-action-dark); }
+.btn-plum { background: var(--color-plum-800); color: #fff; }
+.btn-plum:hover:not(:disabled) { background: var(--color-plum-900); }
+.btn-ghost { background: #fff; color: var(--color-plum-800); border: 1px solid var(--color-line); }
+.btn-ghost:hover:not(:disabled) { border-color: var(--color-plum-700); }
+.card { background: #fff; border: 1px solid var(--color-line); border-radius: .75rem; }
+.input { width: 100%; border: 1px solid var(--color-line); border-radius: .5rem; padding: .5rem .65rem; background: #fff; font-size: .9rem; }
+.label { display: block; font-size: .8rem; font-weight: 600; color: var(--color-muted); margin-bottom: .25rem; }
+.demo-note { font-size: .75rem; color: var(--color-muted); font-style: italic; }
+dialog::backdrop { background: rgb(46 15 40 / .45); }
